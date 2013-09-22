@@ -134,16 +134,15 @@ function showQues() {
 						] ],
 
 						onClickRow : function(index, rowdata) {
-
+							alert($("#file_update"));
 							// 监控下载按钮
 							var isAppear = rowdata.isAppear;
 							var fileId = rowdata.fileId;
 							var fileName = rowdata.fileName;
 							var fileType = rowdata.fileType;
 							var isBrowse = rowdata.isBrowse;
-							if (fileType == null || fileType == ""
-									|| fileType == undefined) {
-								fileType == 'doc';
+							if(fileType==null||fileType==""||fileType==undefined){
+								fileType=='doc';
 							}
 							var projectName;
 							if (rowdata.project != undefined
@@ -159,29 +158,30 @@ function showQues() {
 								$("#a_download").attr('onClick', "");
 							}
 
-							if (isBrowse == "可浏览") {
-								// 监控查看按钮
-								$("#a_see").attr(
-										"href",
-										"/files/onlineSeeFile_onlineSee.action?file.fileId="
-												+ fileId + "&file.fileName="
-												+ fileName + "&fileType="
-												+ fileType);
-								$("#a_see").attr('onClick', "");
-
-								// 跟新按钮操作
-								$("#file_update").attr(
-										"href",
-										"/files/onlineSeeFile_onlineSee.action?file.fileId="
-												+ fileId + "&file.fileName="
-												+ fileName + "&fileType="
-												+ fileType);
-								$("#file_update").attr('onClick', "");
-
-							} else {
+							if(isBrowse=="可浏览"){
+							// 监控查看按钮
+							$("#a_see").attr(
+									"href",
+									"/files/onlineSeeFile_onlineSee.action?file.fileId="
+											+ fileId + "&file.fileName="
+											+ fileName + "&fileType="
+											+ fileType);
+							$("#a_see").attr('onClick', "");
+							
+							//跟新按钮操作
+							$("#file_update").attr(
+									"href",
+									"/files/onlineSeeFile_onlineSee.action?file.fileId="
+											+ fileId + "&file.fileName="
+											+ fileName + "&fileType="
+											+ fileType);
+							$("#file_update").attr('onClick', "");
+							
+							
+							}else{
 								$.messager.show({
-									msg : '该文件不可浏览！',
-									title : '提示'
+									msg:'该文件不可浏览！',
+									title:'提示'
 								});
 							}
 
@@ -406,17 +406,17 @@ function seeFile() {
 	}
 
 	if (rows.length == 1) {
-
+		 
 		var row = $("#filetab1").datagrid('getSelected');
 
 		var fileId = row.fileId;
 		var fileName = row.fileName;
 		var fileType = row.fileType;
 		var isBrows = row.isBrows;
-		if (isBrows == '不可浏览') {
-			$.messager.alert('提示', '该文件不可下载！', 'info');
-			return;
-		}
+        if(isBrows=='不可浏览'){
+        	$.messager.alert('提示','该文件不可下载！', 'info');
+        	return ;
+        }
 		// 加载文件内容
 		$.post('/files/onlineSeeFile_onlineSee.action', {
 			'file.fileId' : fileId,

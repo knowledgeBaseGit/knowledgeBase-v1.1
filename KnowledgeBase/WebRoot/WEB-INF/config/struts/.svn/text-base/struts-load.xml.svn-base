@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<package name="/load" namespace="/load" extends="struts-default">
+
+		<action name="upload" class="uploadAction">
+
+			<interceptor-ref name="fileUpload">
+				<!--可以设置成自己的配置，文件类型和大小等限制 -->
+				<!-- <param name="maximumSize">2097152</param>单位是字节 2M （2097152B） -->
+				<!-- <param name="allowedTypes">image/bmp,image/x-png,image/png,image/gif,image/jpeg,image/jpg,image/pjpeg</param> -->
+				<!-- -->
+				<!-- 容许文件类型为doc,ppt,xls,pdf,txt,java -->
+				<!-- -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+
+
+		<action name="annxUpload_*" method="{1}" class="annxUploadAction">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+
+
+		<action name="upload_*" method="{1}" class="fileUploadAction">
+
+			<interceptor-ref name="fileUpload">
+				<!--可以设置成自己的配置，文件类型和大小等限制 -->
+				<!-- <param name="maximumSize">2097152</param>单位是字节 2M （2097152B） -->
+				<!-- <param name="allowedTypes">image/bmp,image/x-png,image/png,image/gif,image/jpeg,image/jpg,image/pjpeg</param> -->
+				<!-- -->
+				<!-- 容许文件类型为doc,ppt,xls,pdf,txt,java -->
+				<!-- -->
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+
+
+	</package>
+
+	<package name="/fileDownload" namespace="/fileDownload"
+		extends="struts-default">
+		<!-- 文件下载 -->
+		<action name="fileDownLoad_*" method="{1}" class="fileDownloadAction">
+			<result name="success" type="stream">
+			 
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="contentDisposition">
+					attachment;filename=${downLoadFileName}
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="bufferSize">4096</param>
+				
+			</result>
+
+		</action>
+
+	</package>
+
+
+
+<package name="/annexDownload" namespace="/annexDownload"
+		extends="struts-default">
+		<!-- 文件下载 -->
+		<action name="annexDownLoad_*" method="{1}" class="annexDownloadAction">
+			<result name="success" type="stream">
+			 
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+				</param>
+				<param name="contentDisposition">
+					attachment;filename=${downLoadFileName}
+				</param>
+				<param name="inputName">inputStream</param>
+				<param name="bufferSize">4096</param>
+				
+			</result>
+
+		</action>
+
+	</package>
+
+
+
+</struts>
+ 

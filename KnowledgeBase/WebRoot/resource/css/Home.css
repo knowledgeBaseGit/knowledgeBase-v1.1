@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:url(../images/back.jpg) repeat; font-family:"宋体"; font-size:12px; color:#5f5f5f;overflow-x:hidden}
+.all{ width:1000px; height:100%; margin:0 auto;}
+ul,li{ list-style:none; list-style-type:none; padding:0; margin:0;}
+
+.tab{ border:none; font-size:14px; color:#5f5f5f; padding-left:20px; padding-top:30px;}
+.tab td{ padding-left:10px;}
+
+.waterfull{ padding-top:40px; width:1000px; margin:0 auto;}
+#box { position: relative; width:220px; margin-left:25px;}
+#box li { position: absolute; background: #fff; border: solid 1px #ccc; text-align: center;/*css3动画*/ -webkit-transition: all .7s ease-out .1s; -moz-transition: all .7s ease-out; -o-transition: all .7s ease-out .1s; transition: all .7s ease-out .1s}
+img { width: 200px; height: auto; display: block; border: 0 }
+.boxpic{width:200px; height:auto; padding-top:10px; padding-bottom:10px; padding-left:10px; float:left;}
+.boxtext{width:220px; height:35px; float:left; border-top:1px #eeedec solid; background:#f7f7f7; line-height:35px;}
+td a{width: 940px;text-align: center;height: 28px;line-height: 28px;margin-top: 5px; text-decoration: none;}
+	td a:hover{}
+	td a{color: #5f5f5f;}
+	td a:hover{color:#31770a;text-decoration: underline;}

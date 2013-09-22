@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-17 16:59:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.loongsoft.knowledgebase.bean.Users" table="users" catalog="knowledgebase">
+        <id name="userId" type="string">
+            <column name="userId" length="10" />
+            <generator class="foreign">
+                <param name="property">staff</param>
+            </generator>
+        </id>
+        <one-to-one name="staff" class="com.loongsoft.knowledgebase.bean.Staff" constrained="true"></one-to-one>
+        <many-to-one name="role" class="com.loongsoft.knowledgebase.bean.Role" fetch="select">
+            <column name="roleId" length="10">
+                <comment>&#189;&#199;&#201;&#171;Id</comment>
+            </column>
+        </many-to-one>
+        <property name="loginName" type="string">
+            <column name="loginName" length="10">
+                <comment>&#181;&#199;&#194;&#189;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="loginPassword" type="string">
+            <column name="loginPassword" length="10">
+                <comment>&#181;&#199;&#194;&#189;&#195;&#220;&#194;&#235;</comment>
+            </column>
+        </property>
+        <property name="createDate" type="string">
+            <column name="createDate" length="20">
+                <comment>&#180;&#180;&#189;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <set name="solutionsForCheckUser" table="solution" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="checkUser" length="10">
+                    <comment>?&#168;&#174;?????&#161;&#167;???&#168;&#185;??</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Solution" />
+        </set>
+        <set name="filesesForCheckUser" table="files" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="checkUser" length="10">
+                    <comment>&#201;&#243;&#186;&#203;&#200;&#203;&#163;&#168;&#205;&#226;&#188;&#252;&#163;&#169;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Files" />
+        </set>
+        <set name="keywords" table="keyword" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="checkUser" length="10">
+                    <comment>&#201;&#243;&#186;&#203;&#200;&#203;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Keyword" />
+        </set>
+        <set name="questionsesForCheckUser" table="questions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="checkUser" length="10">
+                    <comment>&#201;&#243;&#186;&#203;&#200;&#203;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Questions" />
+        </set>
+        <set name="questionsesForWriteUser" table="questions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="writeUser" length="10">
+                    <comment>&#206;&#202;&#204;&#226;&#180;&#180;&#189;&#168;&#200;&#203;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Questions" />
+        </set>
+        <set name="solutionsForWriteUser" table="solution" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="writeUser" length="10">
+                    <comment>???????&#161;&#167;???&#168;&#185;??</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Solution" />
+        </set>
+        <set name="filesesForCreateUser" table="files" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="createUser" length="10">
+                    <comment>&#180;&#180;&#189;&#168;&#200;&#203;&#163;&#168;&#205;&#226;&#188;&#252;&#163;&#169;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Files" />
+        </set>
+    </class>
+</hibernate-mapping>

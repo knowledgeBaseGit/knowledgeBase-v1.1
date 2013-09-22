@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<package name="/solution" namespace="/solution" extends="struts-default">
+		<action name="solution_*" method="{1}" class="solutionsAction">
+		</action>
+		
+		<action name="solution_save" method="save" class="solutionsAction">
+			<result name="success" >/jsp/CheckSolu.jsp</result>
+		</action>
+		
+	</package>
+</struts>

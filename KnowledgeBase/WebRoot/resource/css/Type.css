@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:url(../images/back.jpg) repeat; font-family:"宋体"; font-size:12px;color:#5f5f5f; overflow-x:hidden}
+ul,li{ list-style:none; list-style-type:none; padding:0; margin:0;}
+img{ border:none}
+.all{ width:1000px; height:100%; margin:0 auto; padding-top: 20px;}
+.righttop{ height:50px; border:1px #e9e9e9 solid; background:#FFFFFF; line-height:50px;}
+.righttop-left{ float:left; padding-left:10px;}
+.inputText{ width:150px; border:1px #e9e9e9 solid;}
+.selectstyle{ width:150px;}
+.inputbutton{ background:url(../images/BtnChoose.jpg) no-repeat; width:56px; height:20px; border:none; color:#FFFFFF}
+
+.righttop-right{ float:right; padding-right:10px; height:26px; padding-top:12px;}
+.righttop-right ul,.righttop-right li{ float:left; height:26px; line-height:26px;}
+.righttop-right li a{ display:block; width:70px; height:26px;background:#357a0f; margin-left:5px; color:#FFFFFF; text-align:center; text-decoration:none;}
+
+.rightmiddle{ background:#FFFFFF; height:600px;border-left:1px #e9e9e9 solid;border-right:1px #e9e9e9 solid;border-bottom:1px #e9e9e9 solid;}
+.datagridtop{background:url(../images/datagridtopbg.jpg) repeat-x; height: 27px; font-weight: bolder; color: #0e2d5f;}
+#tab1{ width:100%; border:none; border-top:1px #e9e9e9 solid;}
+#tab1 td{ height:40px; border-bottom:1px #e9e9e9 solid;  border-right:1px #e9e9e9 solid; text-align:center}
+#tab1 span{ float:right; padding-right:10px;}
+
+.tab2{ width:610px;}
+/*类别管理中分页的样式---张瑞祥 于2013-9-2 添加*/
+#pages{width: 100%;text-align: center;height: 32px;line-height: 32px;margin-top: 5px;border-top:1px #e9e9e9 solid;background: #f8f8f8}
+	#pages a, #pages a.current_page:hover{padding: 5px 10px; text-decoration: none}
+	#pages a:hover{padding: 5px 9px;}
+	#pages a{color: #000;}
+	#pages a:hover{background: #cddde4;border: #97b9c9 solid 1px;color: #067db5;}
+	#pages a.current_page{background: #FFF; border: #89bdd8 solid 1px;color: #067db5;}

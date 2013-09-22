@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<package name="/question" namespace="/question" extends="struts-default">
+		<action name="question_findByHotKeyword" method="findByHotKeyword" class="question1Action">
+			<param name="pageSize">8</param>
+			<result name="success"  >/jsp/QueryList.jsp</result>
+		</action>
+		
+	</package>
+</struts>
+ 

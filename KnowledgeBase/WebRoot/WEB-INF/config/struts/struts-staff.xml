@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<package name="/register" namespace="/register" extends="json-default">
+	<!-- 员工注册 ，验证员工工号是否存在-->
+		<action name="register_staff" method="staff" class="staffAction">
+			<result name="success" type="json">
+				<param name="root">ok</param>
+			</result>
+		</action>
+		<!-- 员工注册后保存 -->
+		<action name="register_regist" method="regist" class="staffAction">
+			<result name="success">/jsp/Login.jsp</result>
+		</action>
+		<action name="register_checkLoginName" method="checkLoginName" class="staffAction" >
+			<result name="success" type="json">
+				<param name="root">ok</param>
+			</result>
+		</action>
+		<!--用户和密码验证  -->
+		<action name="register_check" method="check" class="staffAction">
+			<result name="success" type="json">
+				<param name="root">ok</param>
+			</result>
+		<!-- 登陆验证，成功后跳转到首页 -->
+		</action>
+		<action name="register_login" method="login" class="staffAction">
+			<result name="success" >/templet/index.jsp</result>
+		</action>
+		
+		<!-- 验证码验证 -->
+		<action name="register_checkCode" method="checkCode" class="staffAction">
+			<result name="success" type="json">
+				<param name="root">ok</param>
+			</result>
+		</action>
+	</package>
+	<package name="login" extends="json-default">
+	         <action name="register_login" method="login" class="staffAction">
+			<result name="success" >/templet/index.jsp</result>
+		</action>
+	</package>
+</struts>
+ 

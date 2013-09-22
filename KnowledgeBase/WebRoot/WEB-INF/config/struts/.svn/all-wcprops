@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/KnowledgeBase/!svn/ver/206/branches/WebRoot/WEB-INF/config/struts
+END
+struts-files.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/KnowledgeBase/!svn/ver/206/branches/WebRoot/WEB-INF/config/struts/struts-files.xml
+END
+struts-users.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/KnowledgeBase/!svn/ver/199/branches/WebRoot/WEB-INF/config/struts/struts-users.xml
+END
+struts-role.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/KnowledgeBase/!svn/ver/193/branches/WebRoot/WEB-INF/config/struts/struts-role.xml
+END
+struts.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/KnowledgeBase/!svn/ver/193/branches/WebRoot/WEB-INF/config/struts/struts.xml
+END
+struts-solution.xml
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/KnowledgeBase/!svn/ver/194/branches/WebRoot/WEB-INF/config/struts/struts-solution.xml
+END
+struts-module.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/KnowledgeBase/!svn/ver/193/branches/WebRoot/WEB-INF/config/struts/struts-module.xml
+END
+struts-staff.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/KnowledgeBase/!svn/ver/204/branches/WebRoot/WEB-INF/config/struts/struts-staff.xml
+END

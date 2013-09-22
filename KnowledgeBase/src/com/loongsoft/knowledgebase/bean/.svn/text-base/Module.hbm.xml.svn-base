@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-17 16:59:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.loongsoft.knowledgebase.bean.Module" table="module" catalog="knowledgebase">
+        <id name="moduleId" type="string">
+            <column name="moduleId" length="10" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="module" class="com.loongsoft.knowledgebase.bean.Module" fetch="select">
+            <column name="parentModule" length="10">
+                <comment>???????&#168;&#166;?&#161;&#167;???&#168;&#185;??</comment>
+            </column>
+        </many-to-one>
+        <property name="moduleUrl" type="string">
+            <column name="moduleUrl" length="50">
+                <comment>???&#168;&#166;Url</comment>
+            </column>
+        </property>
+        <property name="isDestroy" type="java.lang.Integer">
+            <column name="isDestroy">
+                <comment>??&#161;&#164;?&#161;&#193;??&#168;&#178;?&#161;&#167;1??????0??&#161;&#164;???</comment>
+            </column>
+        </property>
+        <property name="destroyDate" type="string">
+            <column name="destroyDate" length="20">
+                <comment>&#161;&#193;??&#168;&#178;?&#161;&#192;??</comment>
+            </column>
+        </property>
+        <property name="moduleName" type="string">
+            <column name="moduleName" length="20">
+                <comment>???&#168;&#166;????</comment>
+            </column>
+        </property>
+        <set name="modules" table="module" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="parentModule" length="10">
+                    <comment>???????&#168;&#166;?&#161;&#167;???&#168;&#185;??</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Module" />
+        </set>
+        <set name="functionses" table="functions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="moduleId" length="10">
+                    <comment>???&#168;&#166;Id(???&#168;&#185;)</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Functions" />
+        </set>
+    </class>
+</hibernate-mapping>

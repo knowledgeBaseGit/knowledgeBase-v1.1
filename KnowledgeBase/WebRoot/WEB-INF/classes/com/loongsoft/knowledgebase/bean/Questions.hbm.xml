@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-17 16:59:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.loongsoft.knowledgebase.bean.Questions" table="questions" catalog="knowledgebase">
+        <id name="questionId" type="java.lang.Integer">
+            <column name="questionId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="usersByWriteUser" class="com.loongsoft.knowledgebase.bean.Users" fetch="select">
+            <column name="writeUser" length="10">
+                <comment>&#206;&#202;&#204;&#226;&#180;&#180;&#189;&#168;&#200;&#203;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="project" class="com.loongsoft.knowledgebase.bean.Project" fetch="select">
+            <column name="projectId">
+                <comment>&#203;&#249;&#202;&#244;&#207;&#238;&#196;&#191;</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="usersByCheckUser" class="com.loongsoft.knowledgebase.bean.Users" fetch="select">
+            <column name="checkUser" length="10">
+                <comment>&#201;&#243;&#186;&#203;&#200;&#203;</comment>
+            </column>
+        </many-to-one>
+        <property name="questionDesc" type="string">
+            <column name="questionDesc" length="100">
+                <comment>&#206;&#202;&#204;&#226;&#195;&#232;&#202;&#246;</comment>
+            </column>
+        </property>
+        <property name="writeDate" type="string">
+            <column name="writeDate" length="20">
+                <comment>&#180;&#180;&#189;&#168;&#200;&#213;&#198;&#218;</comment>
+            </column>
+        </property>
+        <property name="checkStatus" type="java.lang.Integer">
+            <column name="checkStatus">
+                <comment>?&#168;&#174;??&#161;&#193;????&#161;&#167;1???&#161;&#167;????0?????&#161;&#167;????</comment>
+            </column>
+        </property>
+        <property name="checkDate" type="string">
+            <column name="checkDate" length="20">
+                <comment>&#201;&#243;&#186;&#203;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="browseTimes" type="java.lang.Integer">
+            <column name="browseTimes">
+                <comment>&#228;&#175;&#192;&#192;&#180;&#206;&#202;&#253;</comment>
+            </column>
+        </property>
+        <property name="questionTitle" type="string">
+            <column name="questionTitle" length="20">
+                <comment>&#206;&#202;&#204;&#226;&#177;&#234;&#204;&#226;</comment>
+            </column>
+        </property>
+        <property name="isSolve" type="java.lang.Integer">
+            <column name="isSolve">
+                <comment>??&#161;&#164;??????????&#161;&#167;1??????0??&#161;&#164;???</comment>
+            </column>
+        </property>
+        <set name="quesKeywords" table="ques_keyword" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="questionId">
+                    <comment>????Id(???&#168;&#185;)</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.QuesKeyword" />
+        </set>
+        <set name="quesSolus" table="ques_solu" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="questionId">
+                    <comment>????Id(???&#168;&#185;)</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.QuesSolu" />
+        </set>
+    </class>
+</hibernate-mapping>

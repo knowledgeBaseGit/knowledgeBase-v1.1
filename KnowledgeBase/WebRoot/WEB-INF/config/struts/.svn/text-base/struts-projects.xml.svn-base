@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<package name="/project" namespace="/project" extends="json-default">
+		<action name="project_*" method="{1}" class="projectsAction">
+			<result name="success" >/jsp/Type.jsp</result>
+		</action>
+		<action name="project_list" method="list" class="projectSearchAction">
+			<param name="pageSize">8</param>
+			<result name="success">/jsp/Type.jsp</result>
+		</action>
+		
+		<!-- 添加成功后，重定向到project_list -->
+		<action name="project_save" method="save" class="projectsAction">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/project</param>
+				<param name="actionName">project_list</param>
+			</result>
+		</action>
+		<!-- 项目新增，提取父级项目 -->
+		<action name="project_add" method="add" class="projectsAction">
+			
+		</action>
+		<!-- 项目新增，验证项目名称是否存在 -->
+		<action name="project_nameCheck" method="nameCheck" class="projectsAction">
+		<!--type="json" 表明将Action中的变量转成JSON， 返回到页面 -->
+			<result name="success" type="json">
+		<!-- ok表示返回的json对象，root表示返回对象的层级根部 -->
+				<param name="root">ok</param>
+			</result>
+		</action>
+		
+		<!-- 项目修改 -->
+		<action name="project_modify" method="modify" class="projectsAction">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/project</param>
+				<param name="actionName">project_list</param>
+			</result>
+		</action>
+		<!-- 项目关键词上传 -->
+		<action name="project_saveKeyPro" method="saveKeyPro" class="projectsAction">
+			<result name="success" type="redirectAction">
+				<param name="namespace">/project</param>
+				<param name="actionName">project_list</param>
+			</result>
+		</action>
+	</package>
+</struts>
+ 

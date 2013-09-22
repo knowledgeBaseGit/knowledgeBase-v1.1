@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-17 16:59:47 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.loongsoft.knowledgebase.bean.Project" table="project" catalog="knowledgebase">
+        <id name="projectId" type="java.lang.Integer">
+            <column name="projectId" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="project" class="com.loongsoft.knowledgebase.bean.Project" fetch="select">
+            <column name="parentProject">
+                <comment>&#184;&#184;&#188;&#182;&#207;&#238;&#196;&#191;</comment>
+            </column>
+        </many-to-one>
+        <property name="projectName" type="string">
+            <column name="projectName" length="50">
+                <comment>&#207;&#238;&#196;&#191;&#195;&#251;&#179;&#198;</comment>
+            </column>
+        </property>
+        <property name="createTime" type="string">
+            <column name="createTime" length="20">
+                <comment>&#180;&#180;&#189;&#168;&#202;&#177;&#188;&#228;</comment>
+            </column>
+        </property>
+        <property name="projectDesc" type="string">
+            <column name="projectDesc" length="50">
+                <comment>&#207;&#238;&#196;&#191;&#195;&#232;&#202;&#246;</comment>
+            </column>
+        </property>
+        <property name="creater" type="string">
+            <column name="creater" length="20">
+                <comment>&#180;&#180;&#189;&#168;&#200;&#203;</comment>
+            </column>
+        </property>
+        <set name="projectKeywords" table="project_keyword" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="projectId">
+                    <comment>????Id(???&#168;&#185;)</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.ProjectKeyword" />
+        </set>
+        <set name="questionses" table="questions" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="projectId">
+                    <comment>&#203;&#249;&#202;&#244;&#207;&#238;&#196;&#191;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Questions" />
+        </set>
+        <set name="projects" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="parentProject">
+                    <comment>&#184;&#184;&#188;&#182;&#207;&#238;&#196;&#191;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Project" />
+        </set>
+        <set name="projects_1" table="project" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="parentProject">
+                    <comment>&#184;&#184;&#188;&#182;&#207;&#238;&#196;&#191;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Project" />
+        </set>
+        <set name="fileses" table="files" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="projectId">
+                    <comment>&#207;&#238;&#196;&#191;&#195;&#251;&#179;&#198;</comment>
+                </column>
+            </key>
+            <one-to-many class="com.loongsoft.knowledgebase.bean.Files" />
+        </set>
+    </class>
+</hibernate-mapping>

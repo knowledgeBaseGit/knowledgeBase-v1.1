@@ -7,14 +7,42 @@ loongsoft knowledgeBase version 1.1
 
 兼容性
 ------
-现在知识库的版本是1.1，jdk 1.7,mysql 5.2 jquery-easyUi 1.2.6 ,开发者最好使用高于1.7.0的jdk,easyui 使用没有特别严格的要求，
+现在知识库的版本是1.1，jdk 1.7,mysql 5.2 jquery-easyUi 1.2.6 ,开发者最好使用高于1.7.0的jdk,easyui版本的使用没有特别严格的要求，
+开发使用IDE的类型不限。
 
 
+介绍
+----
+将项目部署到github实现开源的主要目的是集思广意，和广大程序开发者交流，在现有项目功能的基础上进一步完善。
 
-User guide
+功能模块
+--------
+    上传下载
+    在线编辑
+    审核管理
+    问题管理
+    文件管理
+    权限管理
+    方案管理
+
+安装
+----
+下载知识库源码后，在IDE中导入项目，创建数据库 knowledgeBase 导入数据库脚本，最后一步更改数据库连接地址，打开：WebRoot->WEB-INF->config->properties->jdbc.properties
+ 把连接数据库的地址改成你自己数据库的地址即可。
+ 
+提供文档
+--------
+    需求分析文档
+    项目使用说明文档
+    数据库建模
+    数据库脚本
+    功能详细设计文档
+    
+使用知识库
 ----------
+   用户注册->登陆->进入系统->分配权限->功能操作：提问、回复、上传文件、上传附件、下载文件、下载附件、在线浏览、在线编辑、文件审核、问题审核、方案审核
 
-if you install the project ,you should download the database of zhe knowledgeBase,and change the dataBase address in the webInfo/config/properties/jdbc.properties
-
-
-
+关于
+-----
+版权所有 石家庄恒运网络科技有限公司 2013-9-25
+    
